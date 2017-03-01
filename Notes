@@ -1,0 +1,13 @@
+:xAn example of when pure virtual functions are necessary
+
+For example, let’s say that you have a base class called Figure. The Figure class has a function called draw. And, other classes like Circle and Square derive from the Figure class. In the Figure class, it doesn’t make sense to actually provide a definition for the draw function, because of the simple and obvious fact that a “Figure” has no specific shape. It is simply meant to act as a base class. Of course, in the Circle and Square classes it would be obvious what should happen in the draw function – they should just draw out either a Circle or Square (respectively) on the page. But, in the Figure class it makes no sense to provide a definition for the draw function. And this is exactly when a pure virtual function should be used – the draw function in the Figure class should be a pure virtual function.
+
+*******
+A class with a pure virtual function is called an abstract class
+
+Any class that has at least one pure virtual function is called an abstract class. This means that in our example above, the SomeClass class is an abstract class. An abstract class cannot have an instance of itself created. So, using our example class from above, the following code would not work:
+
+SomeClass aClass;  //Error!  SomeClass is abstract
+
+
+This also means that any class that derives from an abstract class must override the definition of the pure virtual function in the base class, and if it doesn’t then the derived class becomes an abstract class as well.
